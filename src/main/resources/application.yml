@@ -12,9 +12,9 @@ spring:
       min-idle: 10
       max-wait: 10
   redis:
-    host: 127.0.0.1
+    host: 192.168.217.18
     port: 6379
-    password:
+    password: redis123
 
 server:
   port: 8080
