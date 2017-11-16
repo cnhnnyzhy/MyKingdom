@@ -9,32 +9,32 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
-@Configurable
-@EnableWebSecurity
+//@Configurable
+//@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-	static final String SELF_CSRF_COOKIE_NAME = "_token";
-	
-
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/assets/**");
-	}
-
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("1").roles("admin");
-	}
-
-	protected void configure(HttpSecurity http) throws Exception {
-		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
-		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
-		.anyRequest().authenticated() ; 
-		formLogin.loginPage("/login.html").loginProcessingUrl("/login.html").successForwardUrl("/admin/loginSuccess").permitAll();
-		CookieCsrfTokenRepository withHttpOnlyFalse = CookieCsrfTokenRepository.withHttpOnlyFalse();
-		withHttpOnlyFalse.setCookieName(SELF_CSRF_COOKIE_NAME);
-		withHttpOnlyFalse.setHeaderName(SELF_CSRF_COOKIE_NAME);
-		http.csrf().csrfTokenRepository(withHttpOnlyFalse);
-	}
-	
+//
+//	static final String SELF_CSRF_COOKIE_NAME = "_token";
+//
+//
+//	@Override
+//	public void configure(WebSecurity web) throws Exception {
+//		web.ignoring().antMatchers("/assets/**");
+//	}
+//
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication().withUser("admin").password("1").roles("admin");
+//	}
+//
+//	protected void configure(HttpSecurity http) throws Exception {
+//		FormLoginConfigurer<HttpSecurity> formLogin = http.formLogin();
+//		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("admin")
+//		.anyRequest().authenticated() ;
+//		formLogin.loginPage("/login.html").loginProcessingUrl("/login.html").successForwardUrl("/admin/loginSuccess").permitAll();
+//		CookieCsrfTokenRepository withHttpOnlyFalse = CookieCsrfTokenRepository.withHttpOnlyFalse();
+//		withHttpOnlyFalse.setCookieName(SELF_CSRF_COOKIE_NAME);
+//		withHttpOnlyFalse.setHeaderName(SELF_CSRF_COOKIE_NAME);
+//		http.csrf().csrfTokenRepository(withHttpOnlyFalse);
+//	}
+//
 }
