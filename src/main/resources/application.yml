@@ -18,19 +18,12 @@ spring:
   redis:
     host: 192.168.217.18
     port: 6379
-<<<<<<< HEAD
-    password:
-  thymeleaf:
-    prefix: classpath:/static/
-    cache: false
-=======
     password: redis123
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
->>>>>>> 2bc437572f115ada5298529313654f94f24d35f3
 server:
   port: 8080
   context-path: /
