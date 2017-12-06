@@ -5,7 +5,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 123456
+    password: password
     druid:
       initial-size: 10
       max-active: 20
@@ -15,7 +15,9 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
-
+  thymeleaf:
+    prefix: classpath:/static/
+    cache: false
 server:
   port: 8080
   context-path: /
