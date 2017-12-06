@@ -2,7 +2,7 @@ spring:
   application:
     name: mykingdom-imking
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/imking?useSSL=false&useUnicode=true&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: password
@@ -11,13 +11,26 @@ spring:
       max-active: 20
       min-idle: 10
       max-wait: 10
+    schema: classpath:create-db.sql
+    data: classpath:demo-data.sql
+    initialize: false
+    continue-on-error: true
   redis:
-    host: 127.0.0.1
+    host: 192.168.217.18
     port: 6379
+<<<<<<< HEAD
     password:
   thymeleaf:
     prefix: classpath:/static/
     cache: false
+=======
+    password: redis123
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+>>>>>>> 2bc437572f115ada5298529313654f94f24d35f3
 server:
   port: 8080
   context-path: /
@@ -26,6 +39,7 @@ server:
 
 logging:
   config: classpath:log4j2.xml
+  level: debug
 
 mybatis:
   configuration:
